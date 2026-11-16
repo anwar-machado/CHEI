@@ -1,0 +1,12 @@
+{
+  "name": "chei-site",
+  "private": true,
+  "description": "CHEI — landing page (static, no dependencies)",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "python3 -m http.server 8000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
