@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Security policy: everything is loaded from this site only. No inline JS/CSS, no third parties.
        Trusted Types blocks DOM-based XSS (innerHTML & co. are refused by the browser).
-       The same policy is also sent as an HTTP header by _headers (hosts that support it). -->
+       The same policy is also sent as an HTTP header by Cloudflare (_headers). -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; frame-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -15,20 +15,20 @@
       data-i18n="key"            → replaces the text
       data-i18n-attr="attr:key"  → replaces attributes (alt, aria-label, placeholder, content…)
   -->
-  <title data-i18n="meta.title">CHEI — Handmade bags</title>
-  <meta name="description" data-i18n-attr="content:meta.description" content="Handmade leather and woven bags in natural tones.">
+  <title data-i18n="meta.title">CHEI — Handmade crochet bags</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Handmade crochet bags in many stitches, yarns and colours. Maputo, Mozambique.">
   <meta name="theme-color" content="#E9E1D7">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-  <meta property="og:title" content="CHEI — Handmade bags">
-  <meta property="og:description" content="Handmade leather and woven bags in natural tones.">
+  <meta property="og:title" content="CHEI — Handmade crochet bags">
+  <meta property="og:description" content="Handmade crochet bags in many stitches, yarns and colours. Maputo, Mozambique.">
   <meta property="og:image" content="assets/img/hero-sm.webp">
   <meta property="og:type" content="website">
 
   <link rel="preload" href="assets/fonts/bodoni-moda-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="preload" as="image" href="assets/img/hero-sm.webp" imagesrcset="assets/img/hero-sm.webp 900w, assets/img/hero.webp 2000w" imagesizes="(max-width: 900px) 100vw, 50vw">
+  <link rel="preload" as="image" href="assets/img/hero-sm.webp" imagesrcset="assets/img/hero-sm.webp 800w, assets/img/hero.webp 1400w" imagesizes="(max-width: 900px) 100vw, 50vw">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
@@ -90,20 +90,20 @@
     <section class="hero container" id="top" aria-labelledby="hero-title">
       <div class="hero__content">
         <p class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">New collection</p>
-        <h1 class="hero__title" id="hero-title" data-i18n="hero.title">Handmade bags.</h1>
-        <p class="hero__text" data-i18n="hero.text">Leather and woven pieces in natural tones.</p>
+        <h1 class="hero__title" id="hero-title" data-i18n="hero.title">Handmade crochet bags.</h1>
+        <p class="hero__text" data-i18n="hero.text">Different stitches, yarns and colours. Every piece is one of a kind.</p>
         <div class="hero__actions">
           <a class="button" href="#new-arrivals" data-i18n="hero.cta">Shop now</a>
-          <a class="link-arrow" href="#categories" data-i18n="hero.cta2">See categories</a>
+          <a class="link-arrow" href="#categories" data-i18n="hero.cta2">See styles</a>
         </div>
       </div>
 
       <figure class="hero__media">
         <img src="assets/img/hero-sm.webp"
-             srcset="assets/img/hero-sm.webp 900w, assets/img/hero.webp 2000w"
+             srcset="assets/img/hero-sm.webp 800w, assets/img/hero.webp 1400w"
              sizes="(max-width: 900px) 100vw, 50vw"
-             width="900" height="1200"
-             alt="Sand-coloured leather satchel on linen in afternoon light."
+             width="900" height="1350"
+             alt="Two-tone crochet tote in cream and brown, carried by hand."
              data-i18n-attr="alt:hero.alt"
              fetchpriority="high">
       </figure>
@@ -113,27 +113,27 @@
     <section class="promos container" aria-label="Featured" data-i18n-attr="aria-label:a11y.featured">
       <a class="promo" href="#new-arrivals">
         <div class="promo__text">
-          <h2 class="promo__title" data-i18n="cat.topHandle">Top Handle</h2>
-          <p class="promo__sub" data-i18n="promo.topHandle">Structured shapes</p>
+          <h2 class="promo__title" data-i18n="cat.net">Net bags</h2>
+          <p class="promo__sub" data-i18n="promo.net">For market and beach</p>
           <span class="promo__link"><span data-i18n="promo.shop">Shop now</span> <span aria-hidden="true">→</span></span>
         </div>
-        <img class="promo__img" src="assets/img/zuri.webp" width="1000" height="1071" loading="lazy" decoding="async" alt="">
+        <img class="promo__img" src="assets/img/promo-rede.webp" width="900" height="1125" loading="lazy" decoding="async" alt="">
       </a>
       <a class="promo" href="#new-arrivals">
         <div class="promo__text">
-          <h2 class="promo__title" data-i18n="cat.crossbody">Crossbody</h2>
-          <p class="promo__sub" data-i18n="promo.crossbody">Hands-free</p>
+          <h2 class="promo__title" data-i18n="cat.granny">Granny square</h2>
+          <p class="promo__sub" data-i18n="promo.granny">Colour and pattern</p>
           <span class="promo__link"><span data-i18n="promo.shop">Shop now</span> <span aria-hidden="true">→</span></span>
         </div>
-        <img class="promo__img" src="assets/img/amani.webp" width="1000" height="1167" loading="lazy" decoding="async" alt="">
+        <img class="promo__img" src="assets/img/sanaa.webp" width="800" height="993" loading="lazy" decoding="async" alt="">
       </a>
       <a class="promo" href="#new-arrivals">
         <div class="promo__text">
-          <h2 class="promo__title" data-i18n="cat.totes">Totes</h2>
-          <p class="promo__sub" data-i18n="promo.totes">For every day</p>
+          <h2 class="promo__title" data-i18n="cat.mini">Mini</h2>
+          <p class="promo__sub" data-i18n="promo.mini">Small and delicate</p>
           <span class="promo__link"><span data-i18n="promo.shop">Shop now</span> <span aria-hidden="true">→</span></span>
         </div>
-        <img class="promo__img" src="assets/img/kito.webp" width="1000" height="1333" loading="lazy" decoding="async" alt="">
+        <img class="promo__img" src="assets/img/kito.webp" width="900" height="1200" loading="lazy" decoding="async" alt="">
       </a>
     </section>
 
@@ -142,17 +142,17 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow" data-i18n="nav.categories">Categories</p>
-          <h2 class="section-title" id="categories-title" data-i18n="cats.title">Shop by category</h2>
+          <h2 class="section-title" id="categories-title" data-i18n="cats.title">Shop by style</h2>
         </header>
 
         <ul class="categories reveal">
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-zuri.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.topHandle">Top Handle</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-amani.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.crossbody">Crossbody</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-imani.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.shoulder">Shoulder</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-kito.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.totes">Totes</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-sanaa.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.backpacks">Backpacks</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-woven.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.woven">Woven</span></a></li>
-          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-accessories.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.accessories">Accessories</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-totes.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.totes">Totes</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-rede.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.net">Net bags</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-rafia.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.raffia">Raffia</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-granny.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.granny">Granny square</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-riscas.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.stripes">Stripes</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-mini.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.mini">Mini</span></a></li>
+          <li><a class="category" href="#new-arrivals"><img src="assets/img/cat-flores.webp" width="320" height="320" loading="lazy" decoding="async" alt=""><span data-i18n="cat.flowers">Flowers</span></a></li>
         </ul>
       </div>
     </section>
@@ -167,64 +167,64 @@
         </header>
 
         <div class="products">
-          <article class="product reveal" data-price="4500">
+          <article class="product reveal" data-price="2800">
             <div class="product__media">
-              <img src="assets/img/amani.webp" width="1000" height="1167" loading="lazy" decoding="async" alt="Amani crossbody bag in cognac leather." data-i18n-attr="alt:p.amani.alt">
+              <img src="assets/img/amani.webp" width="900" height="1350" loading="lazy" decoding="async" alt="Two-tone crochet tote in cream and brown." data-i18n-attr="alt:p.amani.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Amani" data-fav data-name="Amani"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Amani" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Amani</h3>
-            <p class="product__price">4&nbsp;500&nbsp;MT</p>
+            <p class="product__price">2&nbsp;800&nbsp;MT</p>
           </article>
 
-          <article class="product reveal" data-price="6800">
+          <article class="product reveal" data-price="2200">
             <div class="product__media">
-              <img src="assets/img/zuri.webp" width="1000" height="1071" loading="lazy" decoding="async" alt="Zuri top-handle bag in bone leather." data-i18n-attr="alt:p.zuri.alt">
+              <img src="assets/img/zuri.webp" width="900" height="1200" loading="lazy" decoding="async" alt="Mini crochet bag in cream with a pearl handle." data-i18n-attr="alt:p.zuri.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Zuri" data-fav data-name="Zuri"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Zuri" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Zuri</h3>
-            <p class="product__price">6&nbsp;800&nbsp;MT</p>
+            <p class="product__price">2&nbsp;200&nbsp;MT</p>
           </article>
 
-          <article class="product reveal" data-price="7200">
+          <article class="product reveal" data-price="2500">
             <div class="product__media">
-              <img src="assets/img/sanaa.webp" width="1000" height="1498" loading="lazy" decoding="async" alt="Sanaa backpack in tan leather." data-i18n-attr="alt:p.sanaa.alt">
+              <img src="assets/img/sanaa.webp" width="800" height="993" loading="lazy" decoding="async" alt="Colourful granny square crochet bag." data-i18n-attr="alt:p.sanaa.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Sanaa" data-fav data-name="Sanaa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Sanaa" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Sanaa</h3>
-            <p class="product__price">7&nbsp;200&nbsp;MT</p>
+            <p class="product__price">2&nbsp;500&nbsp;MT</p>
           </article>
 
-          <article class="product reveal" data-price="3200">
+          <article class="product reveal" data-price="1500">
             <div class="product__media">
-              <img src="assets/img/nia.webp" width="1000" height="1500" loading="lazy" decoding="async" alt="Nia tote in sand." data-i18n-attr="alt:p.nia.alt">
+              <img src="assets/img/nia.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Cream crochet net bag." data-i18n-attr="alt:p.nia.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Nia" data-fav data-name="Nia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Nia" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Nia</h3>
-            <p class="product__price">3&nbsp;200&nbsp;MT</p>
+            <p class="product__price">1&nbsp;500&nbsp;MT</p>
           </article>
 
-          <article class="product reveal" data-price="5900">
+          <article class="product reveal" data-price="2600">
             <div class="product__media">
-              <img src="assets/img/imani.webp" width="1000" height="1250" loading="lazy" decoding="async" alt="Imani shoulder bag in oxblood leather." data-i18n-attr="alt:p.imani.alt">
+              <img src="assets/img/imani.webp" width="900" height="1350" loading="lazy" decoding="async" alt="Terracotta and cream striped crochet shoulder bag." data-i18n-attr="alt:p.imani.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Imani" data-fav data-name="Imani"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Imani" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Imani</h3>
-            <p class="product__price">5&nbsp;900&nbsp;MT</p>
+            <p class="product__price">2&nbsp;600&nbsp;MT</p>
           </article>
 
-          <article class="product reveal" data-price="8500">
+          <article class="product reveal" data-price="1800">
             <div class="product__media">
-              <img src="assets/img/kito.webp" width="1000" height="1333" loading="lazy" decoding="async" alt="Kito tote in black leather." data-i18n-attr="alt:p.kito.alt">
+              <img src="assets/img/kito.webp" width="900" height="1200" loading="lazy" decoding="async" alt="Mini crochet bag with crochet tulips." data-i18n-attr="alt:p.kito.alt">
               <button class="fav" type="button" aria-pressed="false" aria-label="Save Kito" data-fav data-name="Kito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button>
               <button class="product__add" type="button" data-add="Kito" data-i18n="p.add">Add to bag</button>
             </div>
             <h3 class="product__name">Kito</h3>
-            <p class="product__price">8&nbsp;500&nbsp;MT</p>
+            <p class="product__price">1&nbsp;800&nbsp;MT</p>
           </article>
         </div>
       </div>
@@ -233,12 +233,12 @@
     <!-- ============ BANNER / ABOUT ============ -->
     <section class="container section--tight" id="about" aria-labelledby="banner-title">
       <div class="banner reveal">
-        <img class="banner__img" src="assets/img/editorial-rack.webp" width="1600" height="1200" loading="lazy" decoding="async"
-             alt="Neutral-toned knitwear on a rail beside dried pampas grass." data-i18n-attr="alt:banner.alt">
+        <img class="banner__img" src="assets/img/banner.webp" width="1400" height="931" loading="lazy" decoding="async"
+             alt="Pink and cream crochet bag on a wooden floor, in soft light." data-i18n-attr="alt:banner.alt">
         <div class="banner__text">
           <p class="eyebrow" data-i18n="banner.eyebrow">Handmade</p>
-          <h2 class="banner__title" id="banner-title" data-i18n="banner.title">Every bag, made by&nbsp;hand.</h2>
-          <p data-i18n="banner.text">Cut, stitched and finished in our studio.</p>
+          <h2 class="banner__title" id="banner-title" data-i18n="banner.title">Stitch by stitch.</h2>
+          <p data-i18n="banner.text">Every bag is crocheted by hand in Maputo.</p>
           <a class="button" href="#contact" data-i18n="banner.cta">Contact us</a>
         </div>
       </div>

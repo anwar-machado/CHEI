@@ -10,11 +10,11 @@ js/i18n.js               Traduções em português (Moçambique) + mensagens din
 js/main.js               Idioma, header, menu mobile, animações, favoritos, carrinho, newsletter
 assets/img/              Fotografias (WebP)
 assets/fonts/            Ficheiros das fontes (woff2)
-_headers                 Cabeçalhos HTTP de segurança (Cloudflare Pages / Netlify)
+_headers                 Cabeçalhos HTTP de segurança (Cloudflare Pages)
+404.html                 Página de erro
 .well-known/security.txt Contacto para reportar problemas de segurança
 robots.txt
 scripts/build.mjs        Build + verificações de segurança → dist/
-.github/workflows/       Publicação automática no GitHub Pages
 ```
 
 ## Correr localmente
@@ -34,16 +34,24 @@ Gera a pasta `dist/` (é essa que se publica). O build pára com erro se encontr
 referências partidas, recursos externos, código inline, links `target="_blank"` sem `noopener`,
 `innerHTML`/`eval` no JavaScript, ou uma CSP em falta ou fraca.
 
-## Publicar
+## Publicar no Cloudflare Pages
 
-**GitHub Pages**
-1. Criar um repositório e enviar o projeto para a branch `main`.
-2. No repositório: *Settings → Pages → Source: GitHub Actions*.
-3. Cada `push` para `main` faz o build e publica automaticamente (`.github/workflows/deploy.yml`).
+**Opção A — ligado ao Git (publica sozinho a cada push)**
+1. Enviar o projeto para um repositório (GitHub ou GitLab).
+2. Cloudflare → *Workers & Pages → Create → Pages → Connect to Git* → escolher o repositório.
+3. Configuração do build:
+   - Framework preset: `None`
+   - Build command: `node scripts/build.mjs`
+   - Build output directory: `dist`
+4. *Save and Deploy*.
 
-**Cloudflare Pages** (recomendado: aplica os cabeçalhos de `_headers`)
-- Build command: `node scripts/build.mjs`
-- Build output directory: `dist`
+**Opção B — upload manual (sem Git)**
+1. Correr `node scripts/build.mjs` no computador.
+2. Cloudflare → *Workers & Pages → Create → Pages → Upload assets* → arrastar a pasta `dist/`.
+
+**Depois do primeiro deploy**
+- Domínio próprio: *Custom domains* no projeto.
+- Confirmar os cabeçalhos em https://securityheaders.com (deve dar nota A ou A+).
 
 ## Segurança
 
@@ -54,11 +62,11 @@ referências partidas, recursos externos, código inline, links `target="_blank"
 - **Dados guardados validados:** o carrinho lido do `localStorage` só aceita produtos que existem na página, quantidades inteiras de 1 a 20 e imagens de `assets/img/`. O idioma só aceita `en` ou `pt`.
 - **Newsletter:** o e-mail é limpo (espaços e caracteres de controlo removidos, máx. 254) e validado com regras restritas. Tentativas de injeção (`<script>`, quebras de linha com `Bcc:`) são rejeitadas. Inclui um campo-armadilha (honeypot) contra bots.
 - **Links do WhatsApp e e-mail** são montados com `encodeURIComponent`, por isso o conteúdo do carrinho não consegue alterar o destino.
-- **Clickjacking:** `frame-ancestors 'none'` + `X-Frame-Options: DENY` em `_headers`; no GitHub Pages (que não envia cabeçalhos), o `main.js` recusa correr dentro de um iframe.
-- **Outros cabeçalhos** (`_headers`): HSTS, `nosniff`, `Referrer-Policy`, `Permissions-Policy` (câmara, microfone, localização… desligados), `Cross-Origin-Opener-Policy`.
-- **GitHub Actions** com permissões mínimas e sem guardar credenciais no checkout.
+- **Clickjacking:** `frame-ancestors 'none'` + `X-Frame-Options: DENY` em `_headers`, e o `main.js` também recusa correr dentro de um iframe (segunda camada).
+- **Outros cabeçalhos** (`_headers`, aplicados pelo Cloudflare): HSTS, `nosniff`, `Referrer-Policy`, `Permissions-Policy` (câmara, microfone, localização… desligados), `Cross-Origin-Opener-Policy`.
+- **Página 404** própria (`404.html`), para endereços errados não devolverem a página inicial.
 
-> O GitHub Pages ignora `_headers`. Lá ficam ativos a CSP via `<meta>` e a proteção anti-iframe em JS, mas não HSTS nem `nosniff` (o GitHub já força HTTPS). Para ter todos os cabeçalhos, use Cloudflare Pages.
+> A CSP existe em dois sítios: `<meta>` no `index.html` e `_headers`. Se mudar uma, mude a outra.
 
 ## Antes de publicar
 

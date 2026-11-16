@@ -5,9 +5,8 @@
 
   const root = document.documentElement;
 
-  /* Anti-clickjacking: never run inside another site's frame.
-     (The frame-ancestors header in _headers does this at server level where the host supports it;
-     this covers hosts like GitHub Pages that can't send headers.) */
+  /* Anti-clickjacking, second layer: never run inside another site's frame.
+     (Cloudflare already blocks this via frame-ancestors / X-Frame-Options in _headers.) */
   if (window.top !== window.self) {
     root.hidden = true;
     try { window.top.location.replace(window.location.href); } catch (e) { /* cross-origin: stay hidden */ }

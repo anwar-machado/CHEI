@@ -785,3 +785,8 @@ ul { list-style: none; margin: 0; padding: 0; }
     animation-duration: .01ms !important;
   }
 }
+
+/* ---------- 404 page ---------- */
+.notfound { display: grid; place-items: center; min-height: 100vh; min-height: 100svh; padding: var(--gutter); text-align: center; }
+.notfound__inner { display: grid; justify-items: center; gap: 1.5rem; }
+.notfound__inner p { margin: 0 0 1rem; color: var(--mocha-text); }

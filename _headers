@@ -1,5 +1,5 @@
-# HTTP security headers — read by Cloudflare Pages and Netlify.
-# (GitHub Pages ignores this file; the <meta> CSP in index.html and the frame check in main.js cover it there.)
+# HTTP security headers — applied by Cloudflare Pages to every response.
+# Keep the CSP here in sync with the <meta> CSP in index.html.
 
 /*
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests

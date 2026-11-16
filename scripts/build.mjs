@@ -8,7 +8,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 
 // Only these files/folders are published (README, scripts, package.json… stay out).
-const PUBLISH = ['index.html', 'robots.txt', '_headers', '.well-known', 'css', 'js', 'assets'];
+const PUBLISH = ['index.html', '404.html', 'robots.txt', '_headers', '.well-known', 'css', 'js', 'assets'];
 
 // Links that may leave the site (navigation only — never loaded as resources).
 const ALLOWED_EXTERNAL_LINKS = [/^https:\/\/wa\.me\//, /^mailto:/, /^tel:/];
@@ -24,8 +24,6 @@ for (const entry of PUBLISH) {
   if (!existsSync(from)) { fail(`Missing: ${entry}`); continue; }
   cpSync(from, join(dist, entry), { recursive: true });
 }
-// GitHub Pages: don't run Jekyll (it would hide .well-known/ and _headers)
-writeFileSync(join(dist, '.nojekyll'), '');
 
 /* ---------- 2. Light minification (comments & indentation only — safe) ---------- */
 const walk = (dir) => readdirSync(dir).flatMap((name) => {
